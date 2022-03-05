@@ -19,7 +19,21 @@ damages = ['Damages not recorded', '100M', 'Damages not recorded', '40M', '27.9M
 # deaths for each hurricane
 deaths = [90,4000,16,3103,179,184,408,682,5,1023,43,319,688,259,37,11,2068,269,318,107,65,19325,51,124,17,1836,125,87,45,133,603,138,3057,74]
 
-# write your update damages function here:
+# Create a conversion dictionary to aid in Million and Billion being turned into float numbers
+large_num_conversion = {"M": 1000000,
+                        "B": 1000000000}
+
+# Update damages function here. Make sure to include float numbers to replace M and B, and leave Damages not recorded:
+def updated_hurricane_damages(damages):
+    updated_damages = []
+    if d in damages == "Damages not recorded":
+        updated_damages.append(d)
+    if d in damages == d.find("M"):
+        updated_damages.append(float(d[0:d.find("M")])*large_num_conversion["M"])
+    if d in damages == d.find("B"):
+        updated_damages.append(float(d[0:d.find("B")])*large_num_conversion["B"])
+    return updated_damages
+    return ("-----------------------------------------------")
 
 
 
